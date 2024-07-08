@@ -1,0 +1,28 @@
+name: flutter_myntra_clone
+description: Myntra clone in Flutter
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.3 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cached_network_image: ^3.2.2
+  pin_code_fields: ^8.0.1
+  flutter_swiper_null_safety: ^1.0.2
+  
+  cupertino_icons: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/blank_image.png
