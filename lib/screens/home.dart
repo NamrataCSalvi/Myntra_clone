@@ -3,7 +3,6 @@ import 'package:flutter_myntra_clone/common_widgets/cached_image.dart';
 import 'package:flutter_myntra_clone/data_provider/home_data.dart';
 import 'package:flutter_myntra_clone/utils/asset_constants.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
-// import 'package:flutter_swiper/flutter_swiper.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -197,12 +196,52 @@ class Home extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  CachedImage(
-                    url: featured_brands,
-                    height: 63,
+                  // Removed featured brands logo here
+                  // Updated Shop the Style section
+                  Text(
+                    'Shop the Style',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Container(
+                    height: 360,
+                    child: Stack(
+                      children: [
+                        Swiper(
+                          duration: 500,
+                          itemWidth: double.infinity,
+                          pagination: SwiperPagination(
+                            builder: DotSwiperPaginationBuilder(
+                              activeColor: Colors.red,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          itemCount: HomeData.getShopTheStyle().length +
+                              5, // Add 5 more images
+                          itemBuilder: (BuildContext context, int index) {
+                            List<String> shopTheStyle =
+                                HomeData.getShopTheStyle();
+                            return CachedImage(
+                              url: shopTheStyle[index %
+                                  shopTheStyle
+                                      .length], // Loop through the images
+                              height: 100,
+                            );
+                          },
+                          autoplay: true,
+                          control: SwiperControl(
+                            iconNext: Icons.arrow_forward,
+                            iconPrevious: Icons.arrow_back,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 15,
+                    width: 400,
                   ),
                   Container(
                     child: Swiper(
