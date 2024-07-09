@@ -1,77 +1,69 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_myntra_clone/screens/categories/categories.dart';
-import 'package:flutter_myntra_clone/screens/home.dart';
+import 'package:flutter_myntra_clone/utils/asset_constants.dart';
 
-class HomeScreen extends StatefulWidget {
-  static const routeName = '/home';
-
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _selectedPageIndex = 0;
-
-  void _selectTab(int index) {
-    setState(() {
-      _selectedPageIndex = index;
-    });
-  }
-
-  Widget _getPage() {
-    final List<Widget> _pages = [
-      Home(),
-      Categories(),
-      Text('Studio'),
-      Text('Explore'),
-      Text('Profile'),
+class HomeData {
+  static List<String> getTopbarAssets() {
+    return [
+      offers,
+      men,
+      women,
+      kids,
+      festive,
+      beauty,
+      home,
+      jewellery,
+      gadgets,
+      essentials,
     ];
-
-    return _pages[_selectedPageIndex];
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+  static List<String> getBiggestOffers() {
+    return [
+      offer1,
+      offer2,
+      offer3,
+      offer4,
+      offer5,
+      offer6,
+      offer7,
+      offer8,
+      offer9,
+      offer10,
+    ];
+  }
 
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: _selectTab,
-        backgroundColor: theme.colorScheme
-            .secondary, // Use secondary color from theme's colorScheme
-        unselectedItemColor: Colors.black87,
-        selectedItemColor: Color.fromRGBO(255, 63, 108, 1),
-        currentIndex: _selectedPageIndex,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            backgroundColor: theme.colorScheme.secondary,
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: theme.colorScheme.secondary,
-            icon: Icon(Icons.category),
-            label: 'Categories',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: theme.colorScheme.secondary,
-            icon: Icon(Icons.tv_outlined),
-            label: 'Studio',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: theme.colorScheme.secondary,
-            icon: Icon(Icons.explore),
-            label: 'Explore',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: theme.colorScheme.secondary,
-            icon: Icon(Icons.person_outline),
-            label: 'Profile',
-          ),
-        ],
-      ),
-      body: _getPage(),
-    );
+  static List<String> getDailyDeals() {
+    return [
+      daily_1,
+      daily_2,
+      daily_3,
+      daily_4,
+      daily_5,
+      daily_6,
+    ];
+  }
+
+  static List<String> getFeaturedBrands() {
+    return [
+      featured_1,
+      featured_2,
+      featured_3,
+      featured_4,
+      featured_5,
+      featured_6,
+      featured_7,
+      featured_8,
+    ];
+  }
+
+  static getShopTheStyle() {
+    return [
+      style1,
+      style2,
+      style3,
+      style4,
+      style5,
+      style6,
+      style7,
+    ];
   }
 }
